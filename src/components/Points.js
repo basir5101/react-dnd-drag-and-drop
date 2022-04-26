@@ -1,7 +1,7 @@
 import React from "react";
 import { useDrag } from "react-dnd";
 
-function Picture({ id, url }) {
+function Points({ id }) {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "image",
     item: { id: id },
@@ -10,13 +10,15 @@ function Picture({ id, url }) {
     }),
   }));
   return (
-    <img
+    <div
+      className="points"
       ref={drag}
-      src={url}
       width="150px"
       style={{ border: isDragging ? "5px solid pink" : "0px" }}
-    />
+    >
+      {id}
+    </div>
   );
 }
 
-export default Picture;
+export default Points;
